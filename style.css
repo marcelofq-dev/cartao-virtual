@@ -11,7 +11,8 @@
 	--surface-color-hover: rgba(255, 255, 255, 0.05);
 	--highlight-color: rgba(255, 255, 255, 0.2);
 	--switch-bg-url: url(./assets/moon-stars.svg);
-	--animation-duration: 0.07s;
+	--animation-duration-mobile: 0.03s;
+	--animation-duration-desktop: 0.3s;
 }
 
 .light {
@@ -26,7 +27,7 @@
 body {
 	background: var(--bg-url) no-repeat top center/cover;
 	transition-property: background, color, border;
-	transition-duration: var(--animation-duration);
+	transition-duration: var(--animation-duration-mobile);
 	height: 100vh;
 }
 body * {
@@ -80,14 +81,14 @@ body * {
 	left: 0;
 	transform: translateY(-50%);
 	z-index: 1;
-	animation: slide-back var(--animation-duration);
+	animation: slide-back var(--animation-duration-mobile);
 }
 #switch button:hover {
 	cursor: pointer;
 	outline: 8px solid var(--highlight-color);
 }
 .light #switch button {
-	animation: slide-in var(--animation-duration) forwards;
+	animation: slide-in var(--animation-duration-mobile) forwards;
 }
 #switch span {
 	width: 64px;
@@ -121,7 +122,7 @@ ul li a {
 	-webkit-backdrop-filter: blur(4px);
 	text-decoration: none;
 	font-weight: 500;
-	transition: background var(--animation-duration);
+	transition: background var(--animation-duration-mobile);
 }
 ul li a sub {
 	padding-top: 5px;
@@ -182,5 +183,21 @@ footer {
 	}
 	to {
 		left: 0%;
+	}
+}
+
+/* Responsive */
+@media only screen and (min-width: 768px) {
+	#switch {
+		cursor: pointer;
+	}
+	#switch button {
+		animation: slide-back var(--animation-duration-desktop);
+	}
+	.light #switch button {
+		animation: slide-in var(--animation-duration-desktop) forwards;
+	}
+	ul li a {
+		transition: background var(--animation-duration-desktop);
 	}
 }
