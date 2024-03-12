@@ -202,7 +202,7 @@ footer {
 	}
 }
 
-@media (orientation: landscape) and (max-width: 690px) {
+@media only screen and (orientation: landscape) and (max-width: 740px) {
 	#container {
 		display: flex;
 		flex-direction: row;
